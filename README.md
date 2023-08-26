@@ -32,10 +32,45 @@ Normalizing the data
 Splitting the data into test and train
 
 ## PROGRAM:
-/Write your code here/
+~~~
+Developed by: Koduru Sanath Kumar Reddy
+Reg no: 212221240024
+~~~
+~~~
+import pandas as pd
+df=pd.read_csv("/content/Churn_Modelling.csv")
+df.head()
+df.isnull().sum()
+df.drop(["RowNumber","Age","Gender","Geography","Surname"],inplace=True,axis=1)
+print(df)
+x=df.iloc[:,:-1].values
+y=df.iloc[:,-1].values
+print(x)
+print(y)
+from sklearn.preprocessing import MinMaxScaler
+scaler = MinMaxScaler()
+df1 = pd.DataFrame(scaler.fit_transform(df))
+print(df1)
+from sklearn.model_selection import train_test_split
+xtrain,ytrain,xtest,ytest=train_test_split(x,y,test_size=0.2,random_state=2)
+print(xtrain)
+print(len(xtrain))
+print(xtest)
+print(len(xtest))
+from sklearn.preprocessing import StandardScaler
+sc = StandardScaler()
+df1 = sc.fit_transform(df)
+print(df1)
+~~~
 
 ## OUTPUT:
-/ Show the result/
+<img width="1132" alt="Screenshot 2023-08-26 at 9 27 12 AM" src="https://github.com/KoduruSanathKumarReddy/Ex.No.1---Data-Preprocessing/assets/69503902/50395e18-8508-47ed-a4f3-14be5d049439">
+<img width="1132" alt="Screenshot 2023-08-26 at 9 27 20 AM" src="https://github.com/KoduruSanathKumarReddy/Ex.No.1---Data-Preprocessing/assets/69503902/c953c4f8-1910-442e-84cf-7c20d291b9dc">
+
+
+
+<img width="1119" alt="Screenshot 2023-08-26 at 9 27 59 AM" src="https://github.com/KoduruSanathKumarReddy/Ex.No.1---Data-Preprocessing/assets/69503902/133e9ef7-fdea-4a47-b586-748a15f69407">
+<img width="1121" alt="Screenshot 2023-08-26 at 9 28 09 AM" src="https://github.com/KoduruSanathKumarReddy/Ex.No.1---Data-Preprocessing/assets/69503902/f7470fa3-93ff-4642-ae2b-64fdce2ff1b0">
 
 ## RESULT
-/Type your result here/
+Therefore the given data is successfully explorated using preprocessing techniques in neural networks.
